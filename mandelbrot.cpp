@@ -44,7 +44,7 @@ int main()
 
 	myImage->print();
 
-	calculateAndWriteToImage(myImage,x0,y0,x1,y1,max);
+	calculateAndWriteToImage(myImage,x0,y0,x1,y1,width,height,max);
 
 
 
