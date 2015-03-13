@@ -44,7 +44,9 @@ int main()
 
 	calculateAndWriteToImage(myImage,x0,y0,x1,y1,width,height,max);
 
+	myImage->show();
 
+	delete myImage;
 
 	return 0;
 }
@@ -87,8 +89,4 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 			img->setPix(j,i,k);
 		}
 	}
-
-	img->show();
-
-
 }
