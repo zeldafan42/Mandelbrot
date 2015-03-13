@@ -24,7 +24,7 @@ AsciiImage::AsciiImage(int width,int height)
 
 void AsciiImage::setPix(int x, int y, int color)
 {
-	int revert = 70 - color;
+	int revert = 69 - color;
 	char a = seventyShadesOfGrey[revert];
 
 	image[width*y+x] = a;
