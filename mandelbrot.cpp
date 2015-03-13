@@ -51,8 +51,8 @@ int main()
 
 void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,double y1,int width,int height,int max)
 {
-	double stepX = (x1-x0)/width;
-	double stepY = (y1-y0)/height;
+	double stepX = (x1-x0)/(double) width;
+	double stepY = (y1-y0)/(double) height;
 
 	double zr = 0.;
 	double zi = 0.;
@@ -71,7 +71,7 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 					double nextzr = zr * zr - zi * zi + (x0 + stepX*j);
 					double nextzi = 2 * zr * zi + (y0 + stepY*i);
 
-					if(nextzr*nextzr + nextzi*nextzi > 4)
+					if( (nextzr*nextzr + nextzi*nextzi) > 4)
 					{
 						k = k % 70;
 						break;
