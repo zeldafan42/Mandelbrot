@@ -75,6 +75,7 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 
 					if(nextzr*nextzr + nextzi*nextzi > 4)
 					{
+						k = k % 70;
 						break;
 					}
 					zr = nextzr;
@@ -88,7 +89,6 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 	}
 
 	img->show();
-
 
 
 }

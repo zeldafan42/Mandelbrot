@@ -24,14 +24,6 @@ AsciiImage::AsciiImage(int width,int height)
 
 void AsciiImage::setPix(int x, int y, int color)
 {
-	if(color>69)
-	{
-		color = 69;
-	}
-	if(color<0)
-	{
-		color = 0;
-	}
 	char a = seventyShadesOfGrey[color];
 
 	image[width*y+x] = a;
