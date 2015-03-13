@@ -16,9 +16,9 @@ AsciiImage::AsciiImage(int height,int width)
 
 void AsciiImage::setPix(int x, int y, int color)
 {
-	if(color>70)
+	if(color>69)
 	{
-		color = 70;
+		color = 69;
 	}
 	if(color<0)
 	{
