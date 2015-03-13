@@ -81,6 +81,8 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 					zr = nextzr;
 					zi = nextzi;
 				}
+			zr = 0;
+			zi = 0;
 
 			img->setPix(j,i,k);
 		}
