@@ -9,7 +9,20 @@
 #ifndef ASCIIIMAGE_H_
 #define ASCIIIMAGE_H_
 
+class AsciiImage
+{
+public:
+	void setPix(int x, int y, int color);
+	void show();
+	AsciiImage(int width, int height);
+	~AsciiImage();
 
+private:
+	int width;
+	int height;
+	static char * seventyShadesOfGrey; //It is the same for every AsciiImage
+
+};
 
 
 
