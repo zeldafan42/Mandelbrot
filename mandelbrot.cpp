@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void calculateAndWriteToImage(AsciiImage * img,int x0,int y0,int x1,int y1,int max);
+void calculateAndWriteToImage(AsciiImage * img,double x0,double y0,double x1,double y1,int width,int height,int max);
 
 int main()
 {
@@ -44,9 +44,51 @@ int main()
 
 	myImage->print();
 
-	//calculateAndWriteToImage(myImage,x0,y0,x1,y1,max);
+	calculateAndWriteToImage(myImage,x0,y0,x1,y1,max);
 
 
 
 	return 0;
+}
+
+void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,double y1,int width,int height,int max)
+{
+	double stepX = (x1-x0)/width;
+	double stepY = (y1-y0)/height;
+
+	double zr = 0.;
+	double zi = 0.;
+	int i = 0;
+	int j = 0;
+	int k = 0;
+
+
+	for(i=0;i<height;i++)
+	{
+		for(j=0;j<width;j++)
+		{
+
+			for(k=0;k<max;k++)
+				{
+					double nextzr = zr * zr - zi * zi + (x0 + stepX*j);
+					double nextzi = 2 * zr * zi + (y0 + stepY*i);
+
+					if(nextzr*nextzr + nextzi*nextzi > 4)
+					{
+						break;
+					}
+					zr = nextzr;
+					zi = nextzi;
+
+				}
+
+
+			img->setPix(j,i,k);
+		}
+	}
+
+	img->show();
+
+
+
 }
