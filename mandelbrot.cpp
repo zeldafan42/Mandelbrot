@@ -42,8 +42,6 @@ int main()
 
 	myImage = new AsciiImage(width, height);
 
-	myImage->print();
-
 	calculateAndWriteToImage(myImage,x0,y0,x1,y1,width,height,max);
 
 

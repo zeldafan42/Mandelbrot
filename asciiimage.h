@@ -16,7 +16,6 @@ public:
 	void show();
 	AsciiImage(int width, int height);
 	~AsciiImage();
-	void print();
 
 private:
 	int width;
