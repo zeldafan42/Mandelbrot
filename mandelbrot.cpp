@@ -56,6 +56,8 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 
 	double zr = 0.;
 	double zi = 0.;
+	double nextzr = 0;
+	double nextzi = 0;
 	int i = 0;
 	int j = 0;
 	int k = 0;
@@ -68,8 +70,8 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 
 			for(k=0;k<max;k++)
 				{
-					double nextzr = zr * zr - zi * zi + (x0 + stepX*j);
-					double nextzi = 2 * zr * zi + (y0 + stepY*i);
+					nextzr = zr * zr - zi * zi + (x0 + stepX*j);
+					nextzi = 2 * zr * zi + (y0 + stepY*i);
 
 					if( (nextzr*nextzr + nextzi*nextzi) > 4)
 					{
@@ -78,9 +80,7 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 					}
 					zr = nextzr;
 					zi = nextzi;
-
 				}
-
 
 			img->setPix(j,i,k);
 		}
