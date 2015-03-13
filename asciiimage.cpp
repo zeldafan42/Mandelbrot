@@ -15,6 +15,11 @@ class AsciiImage
 			char* image = new char[length*width];
 		}
 
+		~AsciiImage()
+		{
+			delete image;
+		}
+
 
 		void setPix(int x, int y, int color)
 		{
