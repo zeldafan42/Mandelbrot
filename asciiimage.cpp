@@ -13,7 +13,7 @@ class AsciiImage
 			this->length = length;
 			this->width = width;
 			char* image = new char[length*width];
-		};
+		}
 
 
 		void setPix(int x, int y, int color)
@@ -29,7 +29,7 @@ class AsciiImage
 			char a = seventyShadesOfGrey[color];
 
 			image[(length-1)*(y-1)+x] = a;
-		};
+		}
 
 		void show()
 		{
@@ -43,7 +43,7 @@ class AsciiImage
 				}
 				std::cout  << std::endl;
 			}
-		};
+		}
 
 
 };
