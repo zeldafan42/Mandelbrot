@@ -46,8 +46,10 @@ void AsciiImage::print()
 	for(int i = 0; i<70; i++)
 	{
 		cout << seventyShadesOfGrey[i]<< endl;
-
-
 	}
 }
 
+AsciiImage::~AsciiImage()
+	{
+			delete[] image;
+	}
