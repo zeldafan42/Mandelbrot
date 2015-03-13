@@ -16,12 +16,13 @@ public:
 	void show();
 	AsciiImage(int width, int height);
 	~AsciiImage();
+	void print();
 
 private:
 	int width;
 	int height;
-	static char * seventyShadesOfGrey; //It is the same for every AsciiImage
-
+	static char seventyShadesOfGrey[70]; //It is the same for every AsciiImage
+	char * image;
 };
 
 
