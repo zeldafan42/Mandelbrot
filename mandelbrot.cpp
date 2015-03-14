@@ -53,8 +53,55 @@ int main()
 
 void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,double y1,int width,int height,int max)
 {
-	double stepX = (x1-x0)/(double) width;
-	double stepY = (y1-y0)/(double) height;
+	double stepX = 0;
+	double stepY = 0;
+
+	if(x0>x1)
+	{
+		cerr << "Incorrect coordinates: x0 > x1" << endl;
+		return;
+	}
+
+	if(y0 > y1)
+	{
+		cerr << "Incorrect coordinates: y0 > y1" << endl;
+	}
+
+
+	if(width<=1)
+	{
+		if(width==1)
+		{
+			stepX = (x1-x0)/width;
+		}
+		else
+		{
+			cerr << "Incorrect width input: negative value" << endl;
+			return;
+		}
+	}
+	else
+	{
+		stepX = (x1-x0)/(width-1);
+	}
+
+	if(height<=1)
+	{
+		if(height==1)
+		{
+			stepY = (y1-y0)/height;
+		}
+		else
+		{
+			cerr << "Incorrect height input: negative value" << endl;
+			return;
+		}
+	}
+	else
+	{
+		stepY = (y1-y0)/(height-1);
+	}
+
 
 	double zr = 0.;
 	double zi = 0.;
