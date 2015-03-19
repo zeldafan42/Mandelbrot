@@ -42,7 +42,7 @@ int main()
 	cout << "Enter max: ";
 	cin >> max;
 	}
-	while(evaluateInputs(x0,y0,x1,y1,width,height,max));
+	while(!evaluateInputs(x0,y0,x1,y1,width,height,max));
 
 	myImage = new AsciiImage(width, height);
 	
