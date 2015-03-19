@@ -12,6 +12,7 @@
 using namespace std;
 
 void calculateAndWriteToImage(AsciiImage * img,double x0,double y0,double x1,double y1,int width,int height,int max);
+bool evaluateInputs(double x0, double y0, double x1, double y1, int width, int height, int max);
 
 int main()
 {
@@ -91,7 +92,7 @@ bool evaluateInputs(double x0, double y0, double x1, double y1, int width, int h
 	return correct;
 }
 
-int calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,double y1,int width,int height,int max)
+void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,double y1,int width,int height,int max)
 {
 	double stepX = 0;
 	double stepY = 0;
@@ -147,5 +148,4 @@ int calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,doub
 			img->setPix(j,i,k);
 		}
 	}
-	return 0;
 }
