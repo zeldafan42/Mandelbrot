@@ -24,7 +24,8 @@ int main()
 	double y1;
 	int max;
 
-
+	do
+	{
 	cout << "Enter Width: ";
 	cin >> width;
 	cout << "Enter Height: ";
@@ -39,9 +40,11 @@ int main()
 	cin >> y1;
 	cout << "Enter max: ";
 	cin >> max;
+	}
+	while(evaluateInput(x0,y0,x1,y1,width,height,max));
 
 	myImage = new AsciiImage(width, height);
-
+	
 	calculateAndWriteToImage(myImage,x0,y0,x1,y1,width,height,max);
 
 	myImage->show();
@@ -51,57 +54,65 @@ int main()
 	return 0;
 }
 
-void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,double y1,int width,int height,int max)
+bool evaluateInputs(double x0, double y0, double x1, double y1, int width, int height, int max)
 {
-	double stepX = 0;
-	double stepY = 0;
-
-	if(x0>x1)
+	bool correct = true;
+	
+	if(x0 > x1)
 	{
 		cerr << "Incorrect coordinates: x0 > x1" << endl;
-		return;
+		correct = false;
 	}
 
 	if(y0 > y1)
 	{
 		cerr << "Incorrect coordinates: y0 > y1" << endl;
+		correct = false;
 	}
-
-
-	if(width<=1)
+	
+	if(width < 1)
 	{
-		if(width==1)
-		{
-			stepX = (x1-x0)/width;
-		}
-		else
-		{
-			cerr << "Incorrect width input: negative value" << endl;
-			return;
-		}
+		cerr << "Incorrect width input: zero or negative value" << endl;
+		correct = false;
+	}
+	
+	if(height < 1)
+	{
+		cerr << "Incorrect height input: zero or negative value" << endl;
+		correct = false;
+	}
+	
+	if(max < 1)
+	{
+		cerr << "Incorrect maximum iterations: zero or negative value";
+		correct = false;
+	}
+	
+	return correct;
+}
+
+int calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,double y1,int width,int height,int max)
+{
+	double stepX = 0;
+	double stepY = 0;
+
+	if(width == 1)
+	{
+		stepX = x1-x0;
 	}
 	else
 	{
 		stepX = (x1-x0)/(width-1);
 	}
 
-	if(height<=1)
+	if(height == 1)
 	{
-		if(height==1)
-		{
-			stepY = (y1-y0)/height;
-		}
-		else
-		{
-			cerr << "Incorrect height input: negative value" << endl;
-			return;
-		}
+		stepY = y1-y0;
 	}
 	else
 	{
 		stepY = (y1-y0)/(height-1);
 	}
-
 
 	double zr = 0.;
 	double zi = 0.;
@@ -136,4 +147,5 @@ void calculateAndWriteToImage(AsciiImage* img, double x0,double y0,double x1,dou
 			img->setPix(j,i,k);
 		}
 	}
+	return 0;
 }
