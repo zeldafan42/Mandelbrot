@@ -1,6 +1,6 @@
 
 CC=g++
-CFLAGS=-g -std=c++11 -Wall -O
+CFLAGS=-std=c++11 -Wall -O
 
 all: mandelbrot
 
