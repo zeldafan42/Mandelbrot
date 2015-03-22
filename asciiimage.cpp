@@ -3,8 +3,8 @@
 
 using namespace std;
 
-static const char shadeChars[] = {'$','@','B','%','8','&','W','M','#','*','o','a','h','k','b','d','p','q','w','m','Z','O','0','Q','L','C','J','U','Y','X','z','c','v','u','n','x','r','j','f','t','/','\\','|','(',')','1','{','}','[',']','?','-','_','+','~','<','>','i','!','l','I',';',':',',','"','^','`','\'','.',' '};;
-const char * AsciiImage::seventyShadesOfGrey = shadeChars;
+const char AsciiImage::seventyShadesOfGrey[70] = {' ','.','\'','`','^','"',',',':',';','I','l','!','i','>','<','~','+','_','-','?',']','[','}','{','1',')','(','|','\\','/','t','f','j','r','x','n','u','v','c','z','X','Y','U','J','C','L','Q','0','O','Z','m','w','q','p','d','b','k','h','a','o','*','#','M','W','&','8','%','B','@','$'};
+
 
 AsciiImage::AsciiImage(int width,int height)
 {
@@ -24,10 +24,7 @@ AsciiImage::AsciiImage(int width,int height)
 
 void AsciiImage::setPix(int x, int y, int color)
 {
-	int revert = 69 - color;
-	char a = seventyShadesOfGrey[revert];
-
-	image[width*y+x] = a;
+	image[width*y+x] = seventyShadesOfGrey[color];
 }
 
 void AsciiImage::show()

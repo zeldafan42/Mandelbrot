@@ -20,7 +20,7 @@ public:
 private:
 	int width;
 	int height;
-	static const char * seventyShadesOfGrey; //It is the same for every AsciiImage
+	static const char seventyShadesOfGrey[70]; //It is the same for every AsciiImage
 	char * image;
 };
 
